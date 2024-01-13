@@ -3,13 +3,36 @@
     "description": "Funções utilitárias para trabalhar com textos em língua portuguesa",
     "version": "0.0.1",
     "license": "MIT",
-    "publishConfig": {
-        "registry": "https://registry.npmjs.org/"
-    },
     "scripts": {
         "empacotar": "yarn rimraf ./dist && tsc && yarn copyfiles -V ./README.md ./dist",
         "testes": "jest --coverage",
         "testes:continuo": "jest --runInBand --watchAll"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DesignLiquido/flexoes.git"
+    },
+    "keywords": [
+        "ditongos",
+        "plural"
+    ],
+    "author": "Leonel Sanches da Silva",
+    "contributors": [
+        {
+            "name": "Leonel Sanches da Silva",
+            "url": "https://www.linkedin.com/in/leonelsanchesdasilva/"
+        },
+        {
+            "name": "Samuel Renan Gonçalves Vaz",
+            "url": "https://www.linkedin.com/in/samuel-renan-goncalves-vaz"
+        }
+    ],
+    "bugs": {
+        "url": "https://github.com/DesignLiquido/flexoes/issues"
+    },
+    "homepage": "https://github.com/DesignLiquido/flexoes#readme",
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
     },
     "devDependencies": {
         "@types/jest": "^29.5.11",
