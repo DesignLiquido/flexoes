@@ -16,6 +16,10 @@ describe('Casos de Sucesso', () => {
     });
 
     describe('Pluralizar', () => {
+        it('pluralizar, vazio', () => {
+            expect(pluralizar("")).toBe("");
+        });
+
         it('pluralizar, trivial: "s" adicionado ao final da palavra.', () => {
             expect(pluralizar("artigo")).toBe("artigos");
         });
