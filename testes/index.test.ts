@@ -20,6 +20,11 @@ describe('Casos de Sucesso', () => {
             expect(pluralizar("artigo")).toBe("artigos");
         });
 
+        it('pluralizar, palavras terminadas em "x".', () => {
+            expect(pluralizar("clímax")).toBe("clímax");
+            expect(pluralizar("tórax")).toBe("tórax");
+        });
+
         it('pluralizar, palavras terminadas em "m".', () => {
             expect(pluralizar("álbum")).toBe("álbuns");
             expect(pluralizar("jovem")).toBe("jovens");
