@@ -9,6 +9,11 @@ const todasAsVogais = vogais.concat(vogaisAcentuadas);
  */
 export function pluralizar(palavra: string): string {
     const palavraMinuscula = palavra.toLocaleLowerCase('pt');
+    // O plural de palavras terminadas em 'x' é a própria palavra.
+    if (palavraMinuscula.endsWith('x')) {
+        return palavraMinuscula;
+    }
+
     if (palavraMinuscula.endsWith('m')) {
         return palavraMinuscula.split('m')[0] + 'ns';
     }
