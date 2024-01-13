@@ -5,10 +5,19 @@ const todasAsVogais = vogais.concat(vogaisAcentuadas);
 /**
  * Dada uma palavra, devolve sua versão no plural.
  * @param palavra A palavra em português.
- * @returns {string}
+ * @returns {string} A palavra no plural.
  */
-export function pluralizar(palavra: string) {
-    return "";
+export function pluralizar(palavra: string): string {
+    const palavraMinuscula = palavra.toLocaleLowerCase('pt');
+    if (palavraMinuscula.endsWith('m')) {
+        return palavraMinuscula.split('m')[0] + 'ns';
+    }
+
+    if (palavraMinuscula.endsWith('r') || palavraMinuscula.endsWith('z')) {
+        return palavraMinuscula + 'es';
+    }
+
+    return palavra + 's';
 }
 
 /**
