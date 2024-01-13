@@ -1,7 +1,7 @@
 {
     "name": "@designliquido/flexoes",
     "description": "Funções utilitárias para trabalhar com textos em língua portuguesa",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "license": "MIT",
     "publishConfig": {
         "registry": "https://registry.npmjs.org/"
