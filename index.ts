@@ -13,13 +13,28 @@ export function pluralizar(palavra: string): string {
     if (palavraMinuscula.endsWith('x')) {
         return palavraMinuscula;
     }
+    
+    const comprimento = palavraMinuscula.length
+
+    switch(palavraMinuscula.substring(comprimento - 2)) {
+        case 'al':
+            return palavraMinuscula.substring(0, comprimento - 1) + 'is';
+        case 'el':
+            return palavraMinuscula.substring(0, comprimento - 2) + 'éis';
+        case 'il':
+            return palavraMinuscula.substring(0, comprimento - 1) + 's';
+        case 'ol':
+            return palavraMinuscula.substring(0, comprimento - 2) + 'óis';
+        case 'ul':
+            return palavraMinuscula.substring(0, comprimento - 2) + 'uis';
+    }
 
     if (palavraMinuscula.endsWith('m')) {
-        return palavraMinuscula.split('m')[0] + 'ns';
+        return palavraMinuscula.substring(0, comprimento - 1) + 'ns';
     }
 
     if (palavraMinuscula.endsWith('r') || palavraMinuscula.endsWith('z')) {
-        return palavraMinuscula + 'es';
+        return palavraMinuscula.substring(0, comprimento) + 'es';
     }
 
     return palavra + 's';

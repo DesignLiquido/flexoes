@@ -29,6 +29,7 @@ describe('Casos de Sucesso', () => {
             expect(pluralizar("álbum")).toBe("álbuns");
             expect(pluralizar("jovem")).toBe("jovens");
             expect(pluralizar("som")).toBe("sons");
+            expect(pluralizar("homem")).toBe("homens");
         });
 
         it('pluralizar, palavras terminadas em "r" ou "z".', () => {
@@ -36,6 +37,14 @@ describe('Casos de Sucesso', () => {
             expect(pluralizar("algoz")).toBe("algozes");
             expect(pluralizar("catéter")).toBe("catéteres");
             // expect(pluralizar("raiz")).toBe("raízes");
+        });
+
+        it('pluralizar, palavras terminadas em "l".', () => {
+            expect(pluralizar("varal")).toBe("varais");
+            expect(pluralizar("fuzil")).toBe("fuzis");
+            expect(pluralizar("canil")).toBe("canis");
+            expect(pluralizar("aluguel")).toBe("aluguéis");
+            expect(pluralizar("lençol")).toBe("lençóis");
         });
     });
 });
