@@ -7,7 +7,7 @@
         "registry": "https://registry.npmjs.org/"
     },
     "scripts": {
-        "empacotar": "rimraf ./dist && tsc && copyfiles -V ./README.md ./dist",
+        "empacotar": "yarn rimraf ./dist && tsc && yarn copyfiles -V ./README.md ./dist",
         "testes": "jest --coverage",
         "testes:continuo": "jest --runInBand --watchAll"
     },
