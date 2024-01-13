@@ -1,6 +1,13 @@
 const vogais = ['a', 'e', 'i', 'o', 'u'];
 const vogaisAcentuadas = ['ã', 'á', 'à', 'é', 'ê', 'í', 'ó', 'ô', 'u'];
 const todasAsVogais = vogais.concat(vogaisAcentuadas);
+const palavrasFinalL = {
+    al: { acrescentar: 'is', quantidadeCaracteres: 1 },
+    el: { acrescentar: 'éis', quantidadeCaracteres: 2 },
+    il: { acrescentar: 's', quantidadeCaracteres: 1 },
+    ol: { acrescentar: 'óis', quantidadeCaracteres: 2 },
+    ul: { acrescentar: 'uis', quantidadeCaracteres: 2 },
+}
 
 /**
  * Dada uma palavra, devolve sua versão no plural.
@@ -8,18 +15,29 @@ const todasAsVogais = vogais.concat(vogaisAcentuadas);
  * @returns {string} A palavra no plural.
  */
 export function pluralizar(palavra: string): string {
+    if (!palavra) {
+        return palavra;
+    }
+
     const palavraMinuscula = palavra.toLocaleLowerCase('pt');
     // O plural de palavras terminadas em 'x' é a própria palavra.
     if (palavraMinuscula.endsWith('x')) {
         return palavraMinuscula;
     }
+    
+    const comprimento = palavraMinuscula.length
+
+    const palavraFinalL = palavrasFinalL[palavraMinuscula.substring(comprimento - 2)]
+    if (palavraFinalL) {
+        return palavraMinuscula.substring(0, comprimento - palavraFinalL.quantidadeCaracteres) + palavraFinalL.acrescentar;
+    }
 
     if (palavraMinuscula.endsWith('m')) {
-        return palavraMinuscula.split('m')[0] + 'ns';
+        return palavraMinuscula.substring(0, comprimento - 1) + 'ns';
     }
 
     if (palavraMinuscula.endsWith('r') || palavraMinuscula.endsWith('z')) {
-        return palavraMinuscula + 'es';
+        return palavraMinuscula.substring(0, comprimento) + 'es';
     }
 
     return palavra + 's';
