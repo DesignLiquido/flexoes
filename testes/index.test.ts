@@ -1,4 +1,4 @@
-import { ditongos, pluralizar } from "..";
+import { ditongos, pluralizar, singularizar } from "..";
 
 describe('Casos de Sucesso', () => {
     describe('Ditongos', () => {
@@ -50,5 +50,42 @@ describe('Casos de Sucesso', () => {
             expect(pluralizar("aluguel")).toBe("aluguéis");
             expect(pluralizar("lençol")).toBe("lençóis");
         });
+    });
+
+    describe('Singularizar', () => {
+        it('singularizar, vazio', () => {
+            expect(singularizar("")).toBe("");
+        });
+
+        it('singularizar, trivial: "s" adicionado ao final da palavra.', () => {
+            expect(singularizar("artigos")).toBe("artigo");
+        });
+
+        it('singularizar, palavras terminadas em "x".', () => {
+            expect(singularizar("clímax")).toBe("clímax");
+            expect(singularizar("tórax")).toBe("tórax");
+        });
+
+        it('singularizar, palavras terminadas em "m".', () => {
+            expect(singularizar("álbuns")).toBe("álbum");
+            expect(singularizar("jovens")).toBe("jovem");
+            expect(singularizar("sons")).toBe("som");
+            expect(singularizar("homens")).toBe("homem");
+        });
+
+        it('singularizar, palavras terminadas em "r" ou "z".', () => {
+            expect(singularizar("açúcares")).toBe("açúcar");
+            expect(singularizar("algozes")).toBe("algoz");
+            expect(singularizar("catéteres")).toBe("catéter");
+            // expect(singularizar("raiz")).toBe("raízes");
+        });
+
+        // it('singularizar, palavras terminadas em "is".', () => {
+        //     expect(singularizar("varal")).toBe("varais");
+        //     expect(singularizar("fuzil")).toBe("fuzis");
+        //     expect(singularizar("canil")).toBe("canis");
+        //     expect(singularizar("aluguel")).toBe("aluguéis");
+        //     expect(singularizar("lençol")).toBe("lençóis");
+        // });
     });
 });
