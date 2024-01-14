@@ -1,7 +1,7 @@
 {
     "name": "@designliquido/flexoes",
     "description": "Funções utilitárias para trabalhar com textos em língua portuguesa",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "license": "MIT",
     "scripts": {
         "empacotar": "yarn rimraf ./dist && tsc && yarn copyfiles -V ./README.md ./dist",
