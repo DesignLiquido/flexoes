@@ -1,6 +1,8 @@
 export const palavrasInvariaveis = [
+    'clímax',
     "grátis",
     "lápis",
     "ônibus",
-    "vírus"
+    "tórax",
+    "vírus",
 ]

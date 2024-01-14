@@ -22,8 +22,8 @@ export function pluralizar(palavra: string): string {
     }
 
     const palavraMinuscula = palavra.toLocaleLowerCase('pt');
-    // O plural de palavras terminadas em 'x' é a própria palavra.
-    if (palavraMinuscula.endsWith('x') || palavrasInvariaveis.includes(palavraMinuscula)) {
+    
+    if (palavrasInvariaveis.includes(palavraMinuscula)) {
         return palavraMinuscula;
     }
     
@@ -52,7 +52,7 @@ export function singularizar(palavra: string) {
 
     const palavraMinuscula = palavra.toLocaleLowerCase('pt');
 
-    if (palavraMinuscula.endsWith('x') || palavrasInvariaveis.includes(palavraMinuscula)) {
+    if (palavrasInvariaveis.includes(palavraMinuscula)) {
         return palavraMinuscula;
     }
 
