@@ -1,3 +1,5 @@
+import { palavrasInvariaveis } from "./palavras-invariaveis";
+
 const vogais = ['a', 'e', 'i', 'o', 'u'];
 const vogaisAcentuadas = ['ã', 'á', 'à', 'é', 'ê', 'í', 'ó', 'ô', 'u'];
 const todasAsVogais = vogais.concat(vogaisAcentuadas);
@@ -21,7 +23,7 @@ export function pluralizar(palavra: string): string {
 
     const palavraMinuscula = palavra.toLocaleLowerCase('pt');
     // O plural de palavras terminadas em 'x' é a própria palavra.
-    if (palavraMinuscula.endsWith('x')) {
+    if (palavraMinuscula.endsWith('x') || palavrasInvariaveis.includes(palavraMinuscula)) {
         return palavraMinuscula;
     }
     
@@ -41,6 +43,32 @@ export function pluralizar(palavra: string): string {
     }
 
     return palavra + 's';
+}
+
+export function singularizar(palavra: string) {
+    if (!palavra) {
+        return palavra;
+    }
+
+    const palavraMinuscula = palavra.toLocaleLowerCase('pt');
+
+    if (palavraMinuscula.endsWith('x') || palavrasInvariaveis.includes(palavraMinuscula)) {
+        return palavraMinuscula;
+    }
+
+    const comprimento = palavraMinuscula.length
+
+    if (palavraMinuscula.endsWith('ns')) {
+        return palavraMinuscula.substring(0, comprimento - 2) + 'm';
+    }
+
+    if (palavraMinuscula.endsWith('es')) {
+        return palavraMinuscula.substring(0, comprimento - 2);
+    }
+
+    if (palavraMinuscula.endsWith('s')) {
+        return palavraMinuscula.substring(0, comprimento - 1)
+    }
 }
 
 /**
